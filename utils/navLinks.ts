@@ -38,27 +38,27 @@ export default [
       menuItemLinks: [
         {
           id: 0,
-          title: "Data & Analytics",
+          title: "Edu Tech",
           link: "/",
         },
         {
           id: 1,
-          title: "Cloud Engineering",
+          title: "Hospitality",
           link: "/",
         },
         {
           id: 2,
-          title: "Business Analysis",
+          title: "Large Enterprise",
           link: "/",
         },
         {
           id: 3,
-          title: "Automation",
+          title: "Retail",
           link: "/",
         },
         {
           id: 4,
-          title: "IOT Applications",
+          title: "Health Care",
           link: "/",
         },
       ],

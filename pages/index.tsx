@@ -1,29 +1,33 @@
-import Footer from '../components/Footer/Footer';
-import Head from '../components/Head';
-import Header from '../components/Header';
-import styles from "../styles/Home.module.css";
-import clsx from 'clsx';
-import ContactButton from '../components/ContactButton';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useEffect } from "react";
+import Footer from "../components/Footer/Footer";
+import Head from "../components/Head";
+import Header from "../components/Header";
+import HomeClients from "../sections/HomeClients/HomeClients";
+import HomeClientTestimonials from "../sections/HomeClientTestimonials/HomeClientTestimonials";
+import HomeDesc from "../sections/HomeDesc/HomeDesc";
+import HomeIntro from "../sections/HomeIntro/HomeIntro";
+import HomeServices from "../sections/HomeServices/HomeServices";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+
   return (
     <>
-      <Head />
-      <Header />
+        <Head />
+        <Header />
 
-      <main>
-        <section id="intro">
-          <div className={clsx(styles.introSection, "w-full flex flex-col items-start space-y-10 pl-10 justify-center bg-gradient-to-r from-cyan-700 to-blue-700")}>
-            <h1 className="text-7xl text-white">Allume Consultancy</h1>
-            <p className="text-lg text-white">
-              The low-code data warehouse integration platform to power informed decision making for data-driven growth.
-            </p>
-            <ContactButton />
-          </div>
-        </section>
-      </main>
+        <main id="main" className="relative">
+          <HomeIntro />
+          <HomeDesc />
+          <HomeClients />
+          <HomeServices />
+          <HomeClientTestimonials />
+        </main>
 
-      <Footer />
+        <Footer />
     </>
-  )
+  );
 }

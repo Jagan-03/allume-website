@@ -5,3 +5,25 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.homeClientWrapper 
+{
+    max-height: 120px;
+    display: flex;
+    overflow-x: auto;
+}
+
+.homeClientWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.homeClientItem
+{
+    min-width: 300px;
+    height: 110px;
+}
+
+.homeServicesCard
+{
+    height: 300px;
+}
