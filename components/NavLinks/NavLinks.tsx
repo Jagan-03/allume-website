@@ -13,23 +13,6 @@ const NavLinks: React.FC<NavLinksProps> = (props) => {
   
   const { scrollTop = 0 } = props;
 
-  const customPointer = useContext(CustomPointerContext);
-  
-  const handleMove = (e: any) => {    
-      gsap.to(customPointer, {
-        scale: 1.5,
-        background: '#0284c7',
-        duration: 0.5,
-      });
-  };
-  const handleLeave = (e: any) => {
-    gsap.to(customPointer, {
-      scale: 1,
-      background: 'none',
-      duration: 0.5,
-    });
-};
-
   return (
     <>
       {navLinks.map((item) => (
@@ -39,8 +22,6 @@ const NavLinks: React.FC<NavLinksProps> = (props) => {
         >
           <Link
             href="/"
-            onMouseOver={handleMove}
-            onMouseLeave={handleLeave}
             className="p-3 hover:underline underline-offset-8 decoration-orange-600 flex items-center justify-between space-x-1 md:border-none border"
           >
             <p className="md:text-white">

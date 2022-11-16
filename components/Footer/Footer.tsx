@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "../../styles/Footer.module.css";
+import ContactForm from "./ContactForm";
+import FooterBanner from "./FooterBanner";
 
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className={styles.footer}>
-        Hello
+        <ContactForm />
+        <FooterBanner />
     </footer>
   )
 }

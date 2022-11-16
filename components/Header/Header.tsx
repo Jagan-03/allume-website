@@ -4,6 +4,7 @@ import NavLinks from "../NavLinks";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import ContactButton from "../ContactButton";
+import Link from "next/link";
 
 interface HeaderProps {}
 
@@ -12,9 +13,8 @@ const Header: React.FC<HeaderProps> = () => {
     const [open, setOpen] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
     
-    const handleScroll = (e: any) => {
-      const layout = document.getElementById("layoutWrapper");
-      setScrollTop(document.body.scrollTop - (layout?.offsetTop ?? 0));
+    const handleScroll = (e: any) => { 
+      setScrollTop(window.scrollY);
   }
   
     useEffect(() => {
@@ -31,7 +31,9 @@ const Header: React.FC<HeaderProps> = () => {
     <header>
       <nav className="w-full md:p-7 p-5 flex justify-between">
         <div className="z-40 p-2 md:w-auto w-full right-0 flex justify-between md:static absolute">
-          <Image alt="Allume Logo" src={"/logo.png"} width={50} height={50} />
+          <Link href="/">
+            <Image alt="Allume Logo" src="/logo.png" className="w-auto h-auto" width={50} height={50} />
+          </Link>
           <div onClick={() => setOpen(!open)}>
             {
               !open ?

@@ -1,31 +1,28 @@
 import clsx from "clsx";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React, {
   createRef,
   RefObject,
-  useContext,
   useEffect,
-  useLayoutEffect,
   useRef,
-  useState,
 } from "react";
 import styles from "../../styles/Home.module.css";
 import services from "../../utils/services";
-import { CustomPointerContext } from "../../components/CustomPointer/CustomPointerContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HomeServices: React.FC = () => {
 
-  const customPointer = useContext(CustomPointerContext);
+  let customPointer: HTMLElement | null = null;
 
   const serviceCardRefs = useRef(
     services.map((service) => createRef() as RefObject<HTMLDivElement>)
   );
 
   useEffect(() => {
+    customPointer = document.getElementById('customPointer');
+
     serviceCardRefs.current.forEach((element, i) => {
       const el = element.current;
       gsap.fromTo(
@@ -50,6 +47,7 @@ const HomeServices: React.FC = () => {
   }, []);
 
   const handleMove = (e: any) => {  
+    
     customPointer?.children[0].classList.remove('hidden');
     gsap.to(customPointer, {
       scale: 4,
@@ -74,7 +72,7 @@ const HomeServices: React.FC = () => {
         <h1 className="text-5xl text-gray-100 font-bold underline underline-offset-8 decoration-orange-600 leading-relaxed">
           Our Software development services
         </h1>
-        <div className="pt-20 grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 place-items-center duration-500">
+        <div className="pt-20 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center duration-500">
           {services.map((service, i) => (
             <div
               ref={serviceCardRefs.current[i]}

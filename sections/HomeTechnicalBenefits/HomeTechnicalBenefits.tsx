@@ -41,7 +41,7 @@ const HomeTechnicalBenefits: React.FC = () => {
             <div 
                 ref={benefitCardRefs.current[i]} 
                 key={`${benefit.title}${i}`} 
-                className={clsx("w-full scale-0 mb-5 md:p-10 flex flex-col items-start space-y-3 justify-around", styles.homeServicesCard)}>
+                className={clsx("w-full scale-0 md:p-10 flex flex-col items-start space-y-3 justify-around", styles.homeServicesCard)}>
                 <div className="flex flex-col justify-start items-center p-5 h-full w-full">
                   {/* <benefit.icon width={100} color="white"/> */}
                   <h1 className="text-xl text-center mb-5 underline text-white font-semibold">

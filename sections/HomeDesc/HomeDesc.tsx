@@ -91,6 +91,7 @@ const HomeDesc: React.FC = () => {
         </div>
         <div className="flex justify-center p-10">
           <Image
+            className="w-auto h-auto"
             src={"/whyAllume.png"}
             alt="Why work with us"
             width={500}

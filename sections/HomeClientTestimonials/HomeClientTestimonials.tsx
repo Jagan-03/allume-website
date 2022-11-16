@@ -4,21 +4,17 @@ import { createRef, RefObject, useEffect, useRef, useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollToPlugin);
 
+gsap.registerPlugin(ScrollToPlugin);
 const HomeClientTestimonials: React.FC = () => {
 
     let currentSlide = 0;
     const slidesRef = useRef([...Array(5)].map(slides => createRef() as RefObject<HTMLDivElement>));
 
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            changeNewSlide();
-        });
+        window.addEventListener('resize', changeNewSlide);
 
-        return () => window.removeEventListener('resize', () => {
-            changeNewSlide();
-        });
+        return () => window.removeEventListener('resize', changeNewSlide);
     }, []);
 
     const prev = () => {
