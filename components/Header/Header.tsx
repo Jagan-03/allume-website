@@ -10,12 +10,27 @@ interface HeaderProps {}
 const Header: React.FC<HeaderProps> = () => {
 
     const [open, setOpen] = useState(false);
+    const [scrollTop, setScrollTop] = useState(0);
+    
+    const handleScroll = (e: any) => {
+      const layout = document.getElementById("layoutWrapper");
+      setScrollTop(document.body.scrollTop - (layout?.offsetTop ?? 0));
+  }
+  
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, true);
+    
+        return () => {
+        window.removeEventListener('scroll', handleScroll, true);
+        };
+    
+    }, []);
 
   return (
-      <div className="z-50 fixed top-0 w-full">
+      <div className={`z-50 fixed top-0 w-full px-10 ${scrollTop > 0 && "bg-primary"} duration-500`}>
     <header>
       <nav className="w-full md:p-7 p-5 flex justify-between">
-        <div className="z-50 p-2 md:w-auto w-full right-0 flex justify-between md:static absolute">
+        <div className="z-40 p-2 md:w-auto w-full right-0 flex justify-between md:static absolute">
           <Image alt="Allume Logo" src={"/logo.png"} width={50} height={50} />
           <div onClick={() => setOpen(!open)}>
             {
@@ -26,13 +41,13 @@ const Header: React.FC<HeaderProps> = () => {
           </div>
         </div>
 
-        <div className="relative">
-          <ul className="md:flex hidden justify-center items-center h-full space-x-5">
-            <NavLinks />
+        <div className="relative w-3/4">
+          <ul className="md:flex hidden justify-end space-x-20 items-center h-full">
+            <NavLinks scrollTop={scrollTop}/>
           </ul>
         </div>
 
-        <ContactButton />
+        <ContactButton scrollTop={scrollTop}/>
 
         {/* Mobile Nav */}
         <ul className={`md:hidden fixed left-0 bg-white w-full h-full bottom-0 py-24 duration-500 ${open ? "top-0" : "top-[-100%]"}`}>
@@ -41,7 +56,7 @@ const Header: React.FC<HeaderProps> = () => {
 
       </nav>
     </header>
-            </div>
+  </div>
   );
 };
 

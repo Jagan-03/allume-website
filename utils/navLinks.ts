@@ -64,6 +64,5 @@ export default [
       ],
     },
     { id: 2, title: "ABOUT" },
-    { id: 3, title: "CONTACT" },
   ];
   

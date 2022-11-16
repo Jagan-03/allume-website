@@ -26,3 +26,13 @@ body {
     background: black;
   }
 }
+
+#homeCarousel::-webkit-scrollbar 
+{
+  display: none;
+}
+
+#customPointer
+{
+  z-index: 100;
+}

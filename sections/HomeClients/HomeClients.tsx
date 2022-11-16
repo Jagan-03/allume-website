@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import styles from "../../styles/Home.module.css";
 import clsx from "clsx";
 import gsap from "gsap";
+import clientList from "../../utils/clientList";
 
 const HomeClients: React.FC = () => {
-  const clientsList = [...Array(20)];
 
   return (
     <section id="clients" className="homeSection">
-      <div className={clsx("", styles.homeClientWrapper)}>
-        {clientsList.map((client, i) => (
+      <div className={clsx("pt-5", styles.homeClientWrapper)}>
+        {clientList.map((client, i) => (
           <div
             key={`client${i}`}
             className={clsx(
@@ -17,7 +17,7 @@ const HomeClients: React.FC = () => {
               styles.homeClientItem
             )}
           >
-            <h1 className="clientNames">Client {i}</h1>
+            <h1 className="clientNames text-2xl font-bold text-gray-500">{client.name}</h1>
           </div>
         ))}
       </div>
